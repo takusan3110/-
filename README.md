@@ -4,7 +4,7 @@
 実装環境としてはanacondaの仮想環境上に実装しました<br>
 openmmlab                /home/saitou/anaconda3/envs/openmmlab<br>
 また、インストールしたパッケージは以下のとおりです
-#　パッケージ一覧
+<br>
  Name                    Version                   Build  Channel
 _libgcc_mutex             0.1                        main  
 _openmp_mutex             5.1                       1_gnu  
@@ -229,7 +229,7 @@ zstd                      1.5.2                ha4553b6_0
 
 
 
-#app.pyを正常に動作させるために必要なこと<br><br>
+**<app.pyを正常に動作させるために必要なこと>**<br><br>
 staticsフォルダ下に以下のツールを置いてください
 
 ・MMPose<br>
