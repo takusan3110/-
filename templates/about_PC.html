@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHISEIDO</title>
+  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+  <link rel="stylesheet" href="static/css/reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Prompt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/about_PC.css') }}">
+  
+
+</head>
+<body>
+  <!-- header -->
+  <header class="header-wrapper">
+    <div class="hesder-inner"><br>
+      <h1 class="site-title"><a href="{{url_for('top')}}">AI姿勢推定サービス「姿勢どう？」</a></h1>
+      <nav class="header-nav">
+        <ul class="#nav-list">
+          <li class="nav-item"><a href="{{url_for('about')}}">ABOUT</a></li>
+          <li class="nav-item"><a href="{{url_for('use')}}">USE</a></li>
+          <li class="nav-item"><a href="{{url_for('info')}}">INFO</a></li>
+          <li class="nav-item"><a href="{{url_for('contact')}}">CONTACT</a></li>
+        </ui>
+      </nav>
+    </div>
+  </header>
+<!-- //header -->
+
+<!-- main -->
+<main>
+  <div class="about-top">
+    <h2 class="about-top">ABOUT</h2>
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    「姿勢どう？」は骨格推定の技術を使ったサービスです。<br><br>
+    姿勢推定というのは、関節や目、鼻など人体の特徴的な点から座標データを検出し、人の姿勢を可視化する技術です。AIを駆使した姿勢推定サービスでは、ディープラーニングにより衣服上でも特徴点の検出を行えますので、今日まで視覚など人間の感覚に頼っていた分野で、定量的なデータに基づくコーチングであったり、レポーティングができるようになりました。
+    AIによる深層学習を用いているため、モーションキャプチャマーカーや、慣性センサーなどの特別な機器や専門的な知識はほとんど必要なく、Webカメラまたはカメラ付きタブレットだけで骨格情報を検出することができます。
+    <br><br>
+    「姿勢どう？」ではトップダウン型を採用しており、画像中の人物を検出した後姿勢推定を行っています。下の画像は姿勢推定の例です。
+    <br><br>
+    <img class="about" src="./static/images/about01.jpg" alt="AboutImage" height="180" width="300" >
+      →
+    <img class="about" src="./static/images/about02.jpeg" alt="AboutImage" height="180" width="300" > 
+  </div>
+  <h3 class="top-privacy"><a name="terms" href="{{url_for('terms')}}">利用規約</a></h3>
+<!-- //main -->
+</main>
+<!-- footer --->
+<footer>
+</footer>
+<!-- //footer -->
+</body>
+</html>

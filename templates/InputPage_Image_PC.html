@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHISEIDO</title>
+  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+  <link rel="stylesheet" href="static/css/reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Prompt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/InputPage_Image_PC.css') }}">
+
+
+</head>
+<body>
+  <!-- header -->
+  <header class="header-wrapper">
+    <div class="hesder-inner"><br>
+      <h1 class="site-title"><a href="{{url_for('top')}}">AI姿勢推定サービス「姿勢どう？」</a></h1>
+      <nav class="header-nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="{{url_for('about')}}">ABOUT</a></li>
+          <li class="nav-item"><a href="{{url_for('use')}}">USE</a></li>
+          <li class="nav-item"><a href="{{url_for('info')}}">INFO</a></li>
+          <li class="nav-item"><a href="{{url_for('contact')}}">CONTACT</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<!-- //header -->
+
+<!-- main -->
+<main> 
+  <h2 class="input-title">画像で解析</h2>
+  <div id="upFileWrap">
+    <div id="inputFile">
+      <form action="{{url_for('upload')}}" method="POST" enctype="multipart/form-data">
+        <!-- ドラッグ&ドロップエリア -->
+        <p id="dropArea">ここにファイルをドロップしてください<br>または</p>
+        
+        <!-- 通常のinput[type=file] -->
+        <div id="inputFileWrap">
+            <input type="file" name="uploadFile" id="uploadFile" onchange="showbtn()" accept="image/jpg, image/jpeg, image/png" style="display:none"/>
+            <input type="button" value="ファイルを選択" id="btnInputFile" onclick="document.getElementById('uploadFile').click()"/>
+            <p id="result"></p>
+            <br>
+            <input type="submit" name="submit-button" id="submit-button" value="姿勢推定開始" class="button" onclick="clickloading()" style="display: none">
+            <div id="gif-animation" style="display: none;">
+              <img id="loading" src="./static/images/loading.gif" alt="Gif animation">
+            </div>
+        </div>
+      </form>
+    </div>
+  </div>
+<!-- 
+  <div class="input-camera">
+    <button type="button" class="input-camera" onclick="location.href='http://127.0.0.1:5000/camera'">
+      <img class="input-camera" src="{{ url_for('static', filename='images/camera_icon.png') }}"/>
+      <br>カメラで撮影
+    </button>
+  </div> --><br>
+  <div class="input-info">
+    <ul class="input-info">
+      <li class="input-info">アップロードできるファイル形式は「.jpg/.jpeg/.png」が利用できます。</li>
+      <li class="input-info">アップロードできるファイルサイズ200MBまでです。</li>
+      <li class="input-info">ファイルを入力した段階で利用規約に同意したとします。</li>
+    </ul>
+  </div>
+  <h3 class="top-privacy"><a name="terms" href="url_for(terms)">利用規約</a></h3>
+</main>
+<footer>
+</footer>
+<script>
+
+
+// ドラッグ&ドロップエリアの取得
+var fileArea = document.getElementById('dropArea');
+
+// input[type=file]の取得
+var fileInput = document.getElementById('uploadFile');
+
+var result = document.getElementById("result");
+
+fileInput.addEventListener("change", (e) => {
+  var file = fileInput.files[0];
+  result.innerHTML = file.name;
+});
+
+// ドラッグオーバー時の処理
+fileArea.addEventListener('dragover', function(e){
+    e.preventDefault();
+    fileArea.classList.add('dragover');
+});
+
+// ドラッグアウト時の処理
+fileArea.addEventListener('dragleave', function(e){
+    e.preventDefault();
+    fileArea.classList.remove('dragover');
+});
+
+// ドロップ時の処理
+fileArea.addEventListener('drop', function(e){
+    e.preventDefault();
+    fileArea.classList.remove('dragover');
+
+    // ドロップしたファイルの取得
+    var files = e.dataTransfer.files;
+
+    // 取得したファイルをinput[type=file]へ
+    fileInput.files = files;
+    
+    if(typeof files[0] !== 'undefined') {
+      document.getElementById("submit-button").style.display="block";
+      var file = fileInput.files[0];
+      result.innerHTML = file.name;
+    } else {
+        //ファイルが受け取れなかった際の処理
+    }
+});
+
+// input[type=file]に変更があれば実行
+// もちろんドロップ以外でも発火します
+fileInput.addEventListener('change', function(e){
+    var file = e.target.files[0];
+    
+    if(typeof e.target.files[0] !== 'undefined') {
+        // ファイルが正常に受け取れた際の処理
+    } else {
+        // ファイルが受け取れなかった際の処理
+    }
+}, false);
+
+//ローディングページ
+function clickloading(){
+  document.getElementById('gif-animation').style.display = 'block';
+  document.body.style.pointerEvents = 'none';
+}
+
+//ファイル入力後にsubmitボタンを出現させる
+function showbtn(){
+  document.getElementById("submit-button").style.display="block";
+}
+</script>
+
+</body>
+</html>

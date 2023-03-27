@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHISEIDO</title>
+  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+  <link rel="stylesheet" href="static/css/reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Prompt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/use_PC.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/body_header.css') }}">
+</head>
+<body>
+  <!-- header -->
+  <header class="header-wrapper">
+    <div class="hesder-inner"><br>
+      <h1 class="site-title"><a href="{{url_for('top')}}">AI姿勢推定サービス「姿勢どう？」</a></h1>
+      <nav class="header-nav">
+        <ul class="#nav-list">
+          <li class="nav-item"><a href="{{url_for('about')}}">ABOUT</a></li>
+          <li class="nav-item"><a href="{{url_for('use')}}">USE</a></li>
+          <li class="nav-item"><a href="{{url_for('info')}}">INFO</a></li>
+          <li class="nav-item"><a href="{{url_for('contact')}}">CONTACT</a></li>
+        </ui>
+      </nav>
+    </div>
+  </header>
+<!-- //header -->
+
+<!-- main -->
+<main>
+  <div class="about-top">
+    <h2 class="about-top">USE</h2>
+  </div>
+  <br>
+  <a id="link-img"href="#about-img">画像を使って姿勢推定を行う場合</a>
+  <a id="link-mov"href="#about-mov">動画を使って姿勢推定を行う場合</a>
+  <br><br>
+  <div class="about-img" id="about-img">
+    画像で姿勢推定する場合
+  </div>
+  <div class="about-info" style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    1. 「画像で推定」をクリックする<br><br>
+    <img class="use" src="./static/images/use01.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    2. 「ファイルを選択」をクリックしする<br><br>
+    <img class="use" src="./static/images/use02.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    3. ファイル選択画面が開くので姿勢推定を行いたい画像を選択し、「開く」をクリックする<br><br>
+    <img class="use" src="./static/images/use03.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    4. 「姿勢推定開始」ボタンをクリックする<br><br>
+    <img class="use" src="./static/images/use04.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    5. 画像の処理は数秒程度で完了するため、そのまま待機する<br><br>
+    <img class="use" src="./static/images/use05.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    6. 「画像をダウンロード」をクリックし、姿勢推定された画像をダウンロードする<br><br>
+    <img class="use" src="./static/images/use06.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <br><br>
+  <div class="about-mov" id="about-mov">
+    動画で姿勢推定する場合
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    1. 「動画で推定」をクリックする<br><br>
+    <img class="use" src="./static/images/use07.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    2. 「ファイルを選択」をクリックしする<br><br>
+    <img class="use" src="./static/images/use08.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    3. ファイル選択画面が開くので姿勢推定を行いたい画像を選択し、「開く」をクリックする<br><br>
+    <img class="use" src="./static/images/use09.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    4. 推定結果をメールで受け取りたい場合はメールアドレス入力フォームをクリックし、自身のメールアドレスを入力する<br><br>
+    <img class="use" src="./static/images/use10.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    5. 「姿勢推定開始」ボタンをクリックする<br><br>
+    <img class="use" src="./static/images/use11.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    6. メールアドレスを入力していない場合はそのまま待つ（この処理には時間がかかります）<br><br>
+    <img class="use" src="./static/images/use13.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    6'. メールアドレスを入力した場合はアップロード完了画面が表示されるので、画面を離れ、結果のメールが届くのを待つ<br><br>
+    <img class="use" src="./static/images/use12.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    7. 「動画をダウンロード」をクリックし、姿勢推定された動画をダウンロードする<br><br>
+    <img class="use" src="./static/images/use14.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    7'. 結果のメールが届いたら記載されているIDをコピーし、URLをクリックする<br><br>
+    <img class="use" src="./static/images/use15.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    8'. ID入力フォームにコピーしたIDをペーストし、「推定結果を見る」をクリックする<br><br>
+    <img class="use" src="./static/images/use16.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+    9'. 「動画をダウンロード」をクリックし、姿勢推定された動画をダウンロードする<br><br>
+    <img class="use" src="./static/images/use14.png" alt="UseImage" height="360" width="600" >
+  </div>
+  <h3 class="top-privacy"><a name="terms" href="{{url_for('terms')}}">利用規約</a></h3>
+<!-- //main -->
+</main>
+<!-- footer --->
+<footer>
+</footer>
+<!-- //footer -->
+</body>
+</html>

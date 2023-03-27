@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHISEIDO</title>
+  <link rel="stylesheet" href="static/css/reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Prompt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/output_movie_PC.css') }}">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/body_header.css') }}">
+
+
+</head>
+<body>
+  <!-- header -->
+  <header class="header-wrapper">
+    <div class="hesder-inner"><br>
+      <h1 class="site-title"><a href="{{url_for('top')}}">AI姿勢推定サービス「姿勢どう？」</a></h1>
+      <nav class="header-nav">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="{{url_for('about')}}">ABOUT</a></li>
+          <li class="nav-item"><a href="{{url_for('use')}}">USE</a></li>
+          <li class="nav-item"><a href="{{url_for('info')}}">INFO</a></li>
+          <li class="nav-item"><a href="{{url_for('contact')}}">CONTACT</a></li>
+        </ui>
+      </nav>
+    </div>
+  </header>
+<!-- //header -->
+
+<!-- main -->
+<main>
+  <div class="about-top">
+    <h2 class="about-top">推定結果</h2>
+  </div>
+  <!-- <div class="about-info"style="padding: 10px; margin-bottom: 10px; border: 1px solid #333333;">
+  </div> -->
+  <video controls loop autoplay muted width="500px" height="300px">
+		<source src= "./static/output_movie/decode{{d}}.mp4" type="video/mp4" />
+	</video>
+
+  
+  <div class="output-button">
+    <a id="download" href="#" onclick="downloadImg();">動画をダウンロード</a>
+  
+    <a id="retry" href="{{url_for('top')}}" class="button-retry">トップページ戻る</a>
+  </div><br><br>
+
+  <div class="btn-container">
+    <button id="data-btn"onclick="toggleTextarea()">詳細データを見る</button><br>
+    <textarea name="" id="text" cols="60" rows="400" style="display:none;"></textarea> 
+  </div>
+
+  <h3 class="top-privacy"><a name="terms" href="{{url_for('terms')}}">利用規約</a></h3>
+<!-- //main -->
+</main>
+
+<script>
+fetch("./static/output_keypoint_movie/"+ {{d|tojson}} +"_keypoints.txt")
+.then(response => response.text())
+.then(text => {
+// テキストをtextareaに書き込む
+document.getElementById("text").value = text;
+});
+
+function downloadImg () {
+    const fileName = {{latest_movie_out|tojson}};
+    const uri = {{latest_movie_out|tojson}};
+    // IEはdownload属性が効かないので分岐
+    if (window.navigator.msSaveOrOpenBlob) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', uri);
+        xhr.responseType = 'blob';
+        xhr.onloadend = () => {
+            if (xhr.status !== 200) {
+                return false;
+            }
+            window.navigator.msSaveOrOpenBlob(xhr.response, fileName);
+        };
+        xhr.send();
+    } else {
+        let link = document.getElementById('download');
+        link.href = uri;
+        link.download = fileName;
+    }
+}
+function toggleTextarea() {
+        const textarea = document.getElementById("text");
+        if (textarea.style.display === "none") {
+          textarea.style.display = "";
+        } else {
+          textarea.style.display = "none";
+          textarea.style.marginTop = "10px";
+        }
+      }
+</script>
+</body>
+</html>

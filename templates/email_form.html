@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>SHISEIDO　ダウンロードフォーム
+</title>    
+</head>
+<body>
+<h1>メールにて送付したIDをフォームにコピー＆ペーストしてください。</h1>
+<form method="post" action="{{url_for('email_output')}}">
+<label>ID： <input type="text" name="id"></label>
+<input type="submit" value="推定結果を見る">
+</form>
+</body>
+</html>

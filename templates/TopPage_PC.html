@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SHISEIDO</title>
+  <script src="https://unpkg.com/dropzone@5/dist/min/dropzone.min.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/dropzone@5/dist/min/dropzone.min.css" type="text/css" />
+  <link rel="stylesheet" href="static/css/reset.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Prompt&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP&family=Prompt&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/TopPage_PC.css') }}">
+
+</head>
+<body>
+  <!-- header -->
+  <header class="header-wrapper">
+    <div class="hesder-inner"><br>
+      <h1 class="site-title"><a href="{{url_for('top')}}">AI姿勢推定サービス「姿勢どう？」</a></h1>
+      <nav class="header-nav">
+        <ul class="#nav-list">
+          <li class="nav-item"><a href="{{url_for('about')}}">ABOUT</a></li>
+          <li class="nav-item"><a href="{{url_for('use')}}">USE</a></li>
+          <li class="nav-item"><a href="{{url_for('info')}}">INFO</a></li>
+          <li class="nav-item"><a href="{{url_for('contact')}}">CONTACT</a></li>
+
+        </ui>
+      </nav>
+    </div>
+  </header>
+<!-- //header -->
+
+<!-- main -->
+<main>
+  
+  <a href="{{url_for('upload')}}" class="top_img_btn">画像で推定</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <a href="{{url_for('upload_movie')}}" class="top_mov_btn">動画で推定</a>
+  <h3 class="top-privacy"><a name="terms" href="{{url_for('terms')}}">利用規約</a></h3>
+<!-- //main -->
+</main>
+<!-- footer --->
+<footer>
+</footer>
+<!-- //footer -->
+</body>
+</html>
