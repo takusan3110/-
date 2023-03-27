@@ -1,0 +1,290 @@
+@charset "UTF-8";
+/* --------------------------------------------
+base
+-----------------------------------------------*/
+
+html{
+  font-size: 62.5%;
+}
+* {
+  box-sizing: border-box;
+}
+body{
+  font-size: 1.6rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Prompt', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(222, 222, 222);
+}
+
+header {
+  width: 100%;
+
+  background-color: #fff;
+  position: fixed;
+  top: 0;
+  display: flex;
+  align-items: center;
+  z-index: 10000;
+  margin-top: 0;
+}
+
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 50px;
+  position: relative;
+  left: 10px;
+  background-color: #fff;
+}
+a {
+  text-decoration: none;
+  color: #4b4b4b;
+}
+nav {
+  margin: 0 0 0 auto;
+}
+ul.nav-list {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  position: relative;
+  top: 10px;
+  right: 50px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 2000px;
+  padding: 5px;
+  background-color: #fff;
+}
+li.nav-item {
+  margin: 0 0 0 200px;
+  font-size: 40px;
+  border-top: 2px;
+}
+.site-title {
+  transition: color .3s;
+}
+.site-title:hover{
+  color: #000066;
+}
+.nav-item:hover {
+  text-decoration: underline;
+}
+
+h2.input-title {
+  font-size: 50px;
+  text-align: center;
+  position: relative;
+  padding-top:150px ;
+}
+#inputFile {
+    position: relative;
+    padding: 50px 0 100px;
+    text-align: center;
+}
+
+#dropArea {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 1000px;
+    height: 300px;
+    padding: 100px 0 100px 0;
+    border: 2px dashed #494949;
+    background: rgba(22, 165, 191, 0);
+    transition: all 0.25s cubic-bezier(0.21, 0.51, 0.51, 1);
+    font-size: 30px;
+    line-height: 150%;
+    text-align: center;
+}
+
+
+#dropArea.dragover {
+    border: 2px solid #16a5bf;
+    background: rgba(22, 165, 191, 0.6);
+}
+
+#uploadFile {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: block;
+    width: 300px;
+    height: 80px;
+    opacity: 0;
+
+
+}
+
+#inputFileWrap {
+    position: relative;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    bottom: 100px;
+    /* left: 150px; */ 
+}
+
+
+
+
+#btnChangeFile {
+    display: none;
+}
+.upload_button {
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 24pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 22px 89px;   /* 余白       */
+  background    : #595959;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  opacity       : 1;           /* 透明度     */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 5px 5px 3px #666666;  /* 影の設定 */
+}
+.upload_button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  opacity       : 0.8;         /* カーソル時透明度 */
+}
+
+
+.button {
+  position: relative;
+  display       : inline-block;
+  border-radius : 50%;          /* 角丸       */
+  font-size     : 24pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  padding       : 22px 89px;   /* 余白       */
+  background    : #000066;     /* 背景色     */
+  color         : #ffffff;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  box-shadow    : 5px 5px 3px #666666;  /* 影の設定 */
+  border        : 2px solid #000066;    /* 枠の指定 */
+  top: 50px;
+  text-align: center;
+}
+.submit-button {
+  right: 200px;
+}
+
+.button:hover {
+  box-shadow    : none;        /* カーソル時の影消去 */
+  color         : #000066;     /* 背景色     */
+  background    : #ffffff;     /* 文字色     */
+}
+
+canvas, video{
+  border: 1px solid gray;
+}
+#btnInputFile span,
+#btnChangeFile span {
+    position: relative;
+    z-index: 2;
+    display: table-cell;
+    width: 300px;
+    height: 80px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background: #333;
+    text-decoration: none;
+    color: #fff;
+    font-size: 26px;
+    line-height: 1;
+    font-weight: bold;
+    vertical-align: middle;
+    left: 30px;
+}
+
+
+#upFileWrap.selected #btnInputFile {
+    display: none;
+}
+
+#upFileWrap.selected #btnChangeFile {
+    display: table;
+}
+
+#btnInputFile:hover{
+  box-shadow    : none;    
+  background-color: #bbbbbb;
+  color: #fff;
+}
+div.input-info {
+  display: flex;
+  justify-content: center;
+  font-size: 20px;
+  line-height: 1.1;
+  position: relative;
+  bottom: 140px;
+
+}
+li.input-info {
+  list-style: "＊";
+}
+h3 {
+  font-size: 150%;
+  text-align: center;
+  position: relative;
+  text-decoration: underline;
+  bottom: 120px;
+}
+
+input[type="button"]{
+  width: 300px;
+  height: 50px;
+  font-size: 20px;
+  background-color: #494949;
+  color: #fff;
+  font-weight: bold;
+}
+a[name="terms"]:hover{
+  color: #0d6dfc;
+}
+
+#result {
+  position: relative;
+}
+
+#email {
+  position: absolute;
+  top: 120px;
+  left: 1px;
+  width: 350px;
+  height: 30px;
+}
+
+#email_text {
+  position: absolute;
+  top: 103px;
+  left: 1px;
+  white-space: nowrap;
+}
+
+#loading {
+  position: relative;
+  z-index: 10000;
+  width: 100px;
+  height: 100px;
+  bottom: 200px;
+  text-align: center;
+
+}
+
+#mail-info {
+  position: absolute;
+  top: 50px;
+}
+

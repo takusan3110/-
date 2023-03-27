@@ -1,0 +1,149 @@
+@charset "UTF-8";
+/* --------------------------------------------
+base
+-----------------------------------------------*/
+html,body{
+  margin:0px;
+}
+html{
+  font-size: 62.5%;
+}
+* {
+  box-sizing: border-box;
+}
+
+body{
+  font-size: 1.6rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Prompt', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(222, 222, 222);
+
+}
+
+header {
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  display: flex;
+  top:0;
+  align-items: center;
+  margin-top: 0;
+}
+
+h1 {
+  margin: 0px;
+  padding: 0px;
+  font-size: 50px;
+  position: relative;
+  left: 10px;
+}
+a {
+  text-decoration: none;
+  color: #4b4b4b;
+
+}
+nav.header-nav {
+  margin: 0 0 0 auto;
+}
+ul.nav-list {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  position: relative;
+  top: 10px;
+  right: 50px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 2000px;
+  padding: 5px;
+}
+li.nav-item {
+  margin: 0 0 0 200px;
+  font-size: 40px;
+  border-top: 2px;
+}
+.site-title {
+  transition: color .3s;
+}
+.site-title:hover{
+  color: #000066;
+}
+.nav-item:hover {
+  text-decoration: underline;
+}
+h2{
+  font-size:40px;
+}
+li {
+  margin: 0 0 0 200px;
+  font-size: 40px;
+  border-top: 2px;
+
+}
+
+
+
+#download{
+  display: inline-block;
+  padding:10px 80px;
+  text-decoration: none;
+  background: rgb(114, 162, 251);
+  color: #333;
+  text-align: center;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+#download:hover {
+  transition: all .2s linear;
+  color: #fff;
+}
+#retry {
+  display: inline-block;
+  padding: 10px 80px;
+  text-decoration: none;
+  background: rgb(114, 162, 251);
+  color: #333;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+#retry:hover{
+  transition: all .2s linear;
+  color: #fff;
+}
+#data-btn{
+  text-align: center;
+  position: relative;
+  margin: auto;
+  padding: 0px 250px;
+  border: none;
+  background: transparent;
+}
+#data-btn:hover{
+  cursor: pointer;
+  color: #000066;
+  text-decoration: underline;
+
+}
+
+.hidden{
+  display: none;
+}
+
+h3 {
+  font-size: 150%;
+  text-align: center;
+  position: relative;
+  text-decoration: underline;
+  top:100px
+}
+a[name="terms"]:hover{
+  color: #0d6dfc;
+}

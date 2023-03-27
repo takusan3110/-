@@ -1,0 +1,100 @@
+@charset "UTF-8";
+/* --------------------------------------------
+base
+-----------------------------------------------*/
+html{
+  font-size: 62.5%;
+}
+* {
+  box-sizing: border-box;
+}
+body{
+  font-size: 1.6rem;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-family: 'Prompt', sans-serif;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(222, 222, 222);
+}
+header {
+  width: 100%;
+  background-color: #fff;
+  position: fixed;
+  display: flex;
+  top:0;
+  align-items: center;
+  margin-top: 0;
+  z-index: 10000;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 50px;
+  position: relative;
+  left: 10px;
+}
+a {
+  text-decoration: none;
+  color: #4b4b4b;
+}
+nav {
+  margin: 0 0 0 auto;
+}
+ul {
+  list-style: none;
+  margin: 0;
+  display: flex;
+  position: relative;
+  top: 10px;
+  right: 50px;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  width: 2000px;
+  padding: 5px;
+  background-color: #fff;
+}
+.site-title {
+  transition: color .3s;
+}
+.site-title:hover{
+  color: #000066;
+}
+.nav-item:hover {
+  text-decoration: underline;
+}
+li {
+  margin: 0 0 0 200px;
+  font-size: 40px;
+  border-top: 2px;
+
+}
+div.about-top {
+  font-size: 40px;
+}
+div.about-info {
+  width: 1283px;
+  height: 426px;
+  background: #fff;
+  border: 1px solid #707070;
+  font-size: 20px;
+}
+h3 {
+  font-size: 150%;
+  text-align: center;
+  position: relative;
+  top: 100px;
+  text-decoration: underline;
+}
+
+a[name="terms"]:hover{
+  color: #0d6dfc;
+}
+
+.about{
+  padding-left: 50px;
+}
